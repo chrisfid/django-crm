@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth.views import redirect_to_login
 from django.forms.models import ModelChoiceField
 from django.urls.base import reverse
-from .models import Agent, Lead
+from .models import Agent, Lead, Category
 
 User = get_user_model()
 
@@ -52,4 +52,12 @@ class LeadCategoryUpdateForm(forms.ModelForm):
         model = Lead
         fields = (
             'category',
+        )
+
+
+class CategoryModelForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = (
+            'name',
         )
